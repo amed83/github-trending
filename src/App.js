@@ -1,21 +1,28 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import axios from 'axios'
+import Layout from './components/Layout/Layout'
+import Search from './containers/Search/Search.js'
 
 class App extends Component {
+
   render() {
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+        <Layout>
+            <Search />
+        </Layout>
     );
   }
 }
 
 export default App;
+
+//
+// <div className="App">
+//   <select value={this.state.value}onChange={this.handleChange.bind(this)}>
+//       <option value="Grapefruit">Grapefruit</option>
+//       <option value="lime">Lime</option>
+//       <option selected value="coconut">Coconut</option>
+//       <option value="mango">Mango</option>
+//   </select>
+//  </div>
