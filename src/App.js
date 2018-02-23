@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import Layout from './components/Layout/Layout'
 import Search from './containers/Search/Search.js'
+import ShowResult from './components/ShowResults/ShowResults'
 
 class App extends Component {
 
@@ -10,6 +11,7 @@ class App extends Component {
     return (
         <Layout>
             <Search />
+            
         </Layout>
     );
   }

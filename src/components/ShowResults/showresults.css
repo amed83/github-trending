@@ -1,0 +1,20 @@
+
+.usersList{
+    font-size: 12px;
+}
+
+.main{
+    margin-top: 10px;
+}
+
+.repoTtile{
+    color:red;
+}
+
+.repoOwner{
+    color:blue;
+}
+
+.repoDescription{
+    color:green;
+}
