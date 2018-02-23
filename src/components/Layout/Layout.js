@@ -2,8 +2,8 @@ import React from 'react'
 import classes from './layout.css'
 
 const layout =(props) =>(
-    
-        <div>Headline
+
+        <div>
             <main className={classes.content}>
                 {props.children}
             </main>
