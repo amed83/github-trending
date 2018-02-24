@@ -39,7 +39,6 @@ handleSubmit(event){
              axios.get(`https://api.github.com/users/${this.state.value}/repos`)
              .then(res=>{
                  data=res.data
-                 console.log('data',data);
                  this.setState({
                      results:data
                  })
@@ -49,7 +48,7 @@ handleSubmit(event){
   }
 
   render() {
-      console.log('sorting',this.props)
+
     return (
         <div>
             <form onSubmit={this.handleSubmit.bind(this)} >

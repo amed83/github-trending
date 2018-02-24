@@ -1,6 +1,7 @@
 
 .usersList{
     font-size: 12px;
+    position: absolute;
 }
 
 .main{
@@ -17,4 +18,9 @@
 
 .repoDescription{
     color:green;
+}
+.sortOptions{
+    margin-left:250px;
+    margin-top: 2px;
+    position:relative;
 }
