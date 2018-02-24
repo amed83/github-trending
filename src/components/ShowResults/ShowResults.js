@@ -2,6 +2,8 @@
 import React, { Component }from 'react'
 import classes from './showresults.css'
 import Sort from '../../containers/Sort/Sort'
+import star from '../../img/star.png'
+
 
 class Showresult extends Component{
         constructor(props){
@@ -29,13 +31,23 @@ class Showresult extends Component{
                     return a.stargazers_count<b.stargazers_count
             }
         let sorted = this.props.data
+        const starStyle={
+            fontSize: '7px',
+            color:'rgb(126, 125, 120)',
+            marginLeft:'4px',
+            marginTop:'3.5px'
+        }
         let users= sorted.sort(compare).map(user=>{
                 return(
                         <main key={user.id} className={classes.main}>
-                            <div className={classes.repoTitle}>{user.name}</div>
-                            <div className={classes.repoOwner} >{user.owner.login}</div>
+                            <div> <img className={classes.avatarImg}src={user.owner.avatar_url}/> </div>
+                            <div className={classes.repoOwner}> {user.owner.login }/
+                                <div className={classes.repoTitle}>{user.name}</div>
+                                <img className={classes.starImg}src={star}/>
+                                <div style={starStyle}>{user.stargazers_count}</div>
+                            </div>
                             <div className={classes.repoDescription}>{user.description}</div>
-                            <div>{user.stargazers_count}</div>
+
                         </main>
                     )
         })
@@ -53,58 +65,3 @@ class Showresult extends Component{
 }
 
 export default Showresult
-// const compare =(a,b)=>{
-//     console.log('this.props.data',this.props.data)
-//     const {sortedValue} =this.state
-//     let objValue
-//     switch(sortedValue){
-//         case 'Name':
-//             objValue='name'
-//             return b.objValue<a.objValue
-//             break;
-//         case 'owner':
-//             objValue='owner.login'
-//             return b.objValue<a.objValue
-//             break;
-//         case 'star':
-//             objValue='stargazers_count'
-//             return b.objValue<a.objValue
-//             break;
-//     }
-// }
-// let sorted=[]
-// sorted= this.props.data.sort(compare)
-// console.log('sorted',sorted);
-// let users = this.props.data.sort(compare).map(user=>{
-//     return(
-//         <main key={user.id} className={classes.main}>
-//             <div className={classes.repoTitle}>{user.name}</div>
-//             <div className={classes.repoOwner} >{user.owner.login}</div>
-//             <div className={classes.repoDescription}>{user.description}</div>
-//             <div>{user.stargazers_count}</div>
-//         </main>
-//     )
-// })
-
-// let arr = [4,5,8,914,125,78]
-// const compare =(a,b)=>{
-//     const {sortedValue} =this.state
-//     switch(sortedValue){
-//         case 'name':
-//             return a-b
-//             break;
-//         case 'owner':
-//             return b-a
-//             break;
-//         }
-// }
-// let sorted= this.props.data
-// sorted.sort(compare)
-// console.log('sorted',sorted);
-// let users= sorted.map(num=>{
-//     return(
-//         <div>
-//             {num}
-//         </div>
-//     )
-// })

@@ -6,6 +6,7 @@
 
 .main{
     margin-top: 10px;
+    margin-left: 20px;
 }
 
 .repoTtile{
@@ -14,13 +15,30 @@
 
 .repoOwner{
     color:blue;
+    display: inline-flex;
+    font-weight: bold;
 }
 
 .repoDescription{
-    color:green;
+    color:rgb(57, 55, 54);
+    font-size: 10px;
 }
+
+.starImg{
+    width:8px;
+    height: 9px;
+    color:rgb(91, 87, 86);
+    margin-left: 7px;
+    margin-top: 3px;
+}
+
 .sortOptions{
     margin-left:250px;
     margin-top: 2px;
     position:relative;
+}
+
+.avatarImg{
+    width: 20px;
+    height: 30px;
 }
