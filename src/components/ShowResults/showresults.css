@@ -1,12 +1,16 @@
 
-.usersList{
+.resultList{
     font-size: 12px;
+    left:23%;
+    top:40%;
     position: absolute;
+    /* background: yellow; */
 }
 
 .main{
     margin-top: 10px;
     margin-left: 20px;
+    /* background: green; */
 }
 
 .repoTtile{
@@ -33,9 +37,10 @@
 }
 
 .sortOptions{
-    margin-left:250px;
-    margin-top: 2px;
-    position:relative;
+    left:58%;
+    position: absolute;
+    top:19%;
+    background: red;
 }
 
 .avatarImg{

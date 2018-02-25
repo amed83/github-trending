@@ -37,7 +37,7 @@ class Showresult extends Component{
             marginLeft:'4px',
             marginTop:'3.5px'
         }
-        let users= sorted.sort(compare).map(user=>{
+        let list= sorted.sort(compare).map(user=>{
                 return(
                         <main key={user.id} className={classes.main}>
                             <div> <img className={classes.avatarImg}src={user.owner.avatar_url}/> </div>
@@ -47,19 +47,18 @@ class Showresult extends Component{
                                 <div style={starStyle}>{user.stargazers_count}</div>
                             </div>
                             <div className={classes.repoDescription}>{user.description}</div>
-
                         </main>
                     )
         })
         return(
-                <div>
-                    <div className={classes.usersList}>
-                        {users}
-                    </div>
-                    <div className={classes.sortOptions}>
-                        <Sort callBackFromParent={this.myCallBack.bind(this)}/>
-                    </div>
-                </div>
+                <div className={classes.mainContainer}>
+                        <div className={classes.resultList}>
+                            {list}
+                        </div>
+                        <div className={classes.sortOptions}>
+                            <Sort callBackFromParent={this.myCallBack.bind(this)}/>
+                        </div>
+              </div>
         )
     }
 }

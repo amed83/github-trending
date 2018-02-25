@@ -32,7 +32,7 @@ handleSubmit(event){
              .then(res=> {
                  data=res.data.items
                  this.setState({
-                 results:data.slice(0,4)
+                 results:data.slice(0,10)
                  })
              })
     }else {
@@ -51,16 +51,17 @@ handleSubmit(event){
   render() {
 
     return (
-        <div >
-            <form className={classes.content} onSubmit={this.handleSubmit.bind(this)} >
-                <input value={this.state.value} onChange={this.handleChange.bind(this)}/>
-            <select value={this.state.option}onChange={this.handleOption.bind(this)}>
-                    <option value="repo">Repo</option>
-                    <option value="owner">Owner</option>
-                </select>
-
-            </form>
-            <ShowResults data={this.state.results}/>
+            <div>
+                <div className={classes.mainContainer}>
+                    <form className={classes.content} onSubmit={this.handleSubmit.bind(this)} >
+                        <input placeholder='Input a Repo or User name' value={this.state.value} onChange={this.handleChange.bind(this)}/>
+                        <select value={this.state.option}onChange={this.handleOption.bind(this)}>
+                            <option value="repo">Repo</option>
+                            <option value="owner">User</option>
+                        </select>
+                    </form>
+                </div>
+                <ShowResults data={this.state.results}/>
         </div>
     );
   }

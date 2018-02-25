@@ -5,23 +5,36 @@
     height: 30px;
     display: flex;
     justify-content:center;
-
-
 }
 
 .centralHeader{
     width:28%;
-    border:solid black 1px;
     color:rgb(246, 235, 238);
     font-weight: bold;
     padding-top:6px;
     font-size:10px;
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .logo{
-    margin-left:-180px;
+    position: absolute;
+    left:30%;
     width:36px;
     height:30px;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .centralHeader{
+        width: 44%;
+        padding-top:4px;
+    }
+    /* .header{
+        background: green;
+    } */
+    .logo{
+        left:5%;
+    }
 }
