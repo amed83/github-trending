@@ -1,5 +1,11 @@
+.mainSort select{
+    font-size: 12px;
+    font-weight: bold;
+}
 
-/* .mainSort{
-    margin-left: 300px;
-    border: solid black 1px;
-} */
+
+@media only screen and(max-height:600px){
+    .mainSort{
+        top:10%;
+    }
+}

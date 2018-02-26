@@ -1,22 +1,22 @@
 
 import React, { Component } from 'react';
 import axios from 'axios'
-import ShowResults from '../../components/ShowResults/ShowResults'
-import styled from 'styled-components'
+import ShowResults from '../ShowResults/ShowResults'
 import {Selector} from './style.js'
 import classes from './search.css'
+
 class Search extends Component {
-    constructor(props){
-        super(props)
-    }
+
     state={
-        value:"",
+        inputValue:"",
         results:[],
-        option:'repo'
+        option:'repo',
+        error:""
     }
 handleChange(event){
     this.setState({
-        value:event.target.value
+        inputValue:event.target.value,
+        error:""
     })
 }
 handleOption(event){
@@ -27,21 +27,48 @@ handleOption(event){
 handleSubmit(event){
     event.preventDefault()
     let data;
+
     if(this.state.option==='repo'){
-         axios.get(`https://api.github.com/search/repositories?q=${this.state.value}`)
+
+         axios.get(`https://api.github.com/search/repositories?q=${this.state.inputValue}`)
              .then(res=> {
-                 data=res.data.items
-                 this.setState({
-                 results:data.slice(0,10)
-                 })
-             })
-    }else {
+                 if(res.data.total_count<1){
+                         this.setState({
+                             error:'We could find this repo, sorry :(',
+                             results:[]
+                         })
+                     return;
+                 }
+                 else{
+                     data=res.data.items.slice(0,10)
+                     data.map(result=>{
+                        let url= result.contributors_url
+                        return axios.get(url)
+                         .then(res=>{
+                              result.countContr=res.data.length
+                              return this.setState({
+                                  results:data
+                             })
+
+                        })
+
+                   })
+               }
+          })
+    }
+    else {
         if(this.state.option==='owner'){
-             axios.get(`https://api.github.com/users/${this.state.value}/repos`)
+             axios.get(`https://api.github.com/users/${this.state.inputValue}/repos`)
              .then(res=>{
+                 console.log('res',res.message)
                  data=res.data
                  this.setState({
-                     results:data
+                     results:data.slice(0,10)
+                 })
+             }).catch(e=> {
+                 this.setState({
+                     error:'Sorry, this user does not exist ',
+                     results:[]
                  })
              })
         }
@@ -54,17 +81,30 @@ handleSubmit(event){
             <div>
                 <div className={classes.mainContainer}>
                     <form className={classes.content} onSubmit={this.handleSubmit.bind(this)} >
-                        <input placeholder='Input a Repo or User name' value={this.state.value} onChange={this.handleChange.bind(this)}/>
-                        <select value={this.state.option}onChange={this.handleOption.bind(this)}>
+                        <input placeholder='Insert a Repo or User name'
+                            value={this.state.inputValue}
+                            onChange={this.handleChange.bind(this)}
+                        />
+
+                        <Selector value={this.state.option}onChange={this.handleOption.bind(this)}> >
                             <option value="repo">Repo</option>
                             <option value="owner">User</option>
-                        </select>
+                        </Selector>
                     </form>
+
                 </div>
-                <ShowResults data={this.state.results}/>
+                    <ShowResults data={this.state.results}/>
+                    <div className={classes.errorMessage}>
+                        {this.state.error}
+                    </div>
         </div>
     );
   }
 }
 
 export default Search;
+
+// <select value={this.state.option}onChange={this.handleOption.bind(this)}>
+//     <option value="repo">Repo</option>
+//     <option value="owner">User</option>
+// </select>

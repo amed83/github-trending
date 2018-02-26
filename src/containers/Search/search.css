@@ -4,7 +4,7 @@
     width: 40%;
     display: flex;
     justify-content: center;
-    /* border:solid green; */
+
 }
 
 .content input{
@@ -20,23 +20,41 @@
 .mainContainer{
     display: flex;
     justify-content: center;
-    border:solid black 1px;
     width: 60%;
     position: absolute;
-    top:20%;
-    left:20%;
+    top:5%;
+    left:15%;
 }
+
+.errorMessage{
+    color:red;
+    font-weight: bold;
+    font-size: 12px;
+    position: absolute;
+    left: 36%;
+    top:31%;
+}
+
 
 @media only screen and (max-width: 600px) {
     .mainContainer{
-        left:10%;
+        top:4%;
+        left:0%;
         justify-content: flex-start;
+        width: 92%;
     }
     .content input{
         width: 100%;
+        font-size:50%;
     }
-    .conten select{
-        width: 35%;
+    .content select{
+        width: 42%;
+        font-size:45%;
     }
 
+    .errorMessage{
+        font-size: 50%;
+        top:19%;
+        left:14%;
+    }
 }

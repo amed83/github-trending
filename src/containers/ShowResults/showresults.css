@@ -1,0 +1,77 @@
+
+
+.mainContainer{
+    width: 100%;
+    /* border:solid black 1px; */
+}
+
+.fas fa-users{
+    color:green;
+}
+
+.main{
+    padding-top: 1.5%;
+}
+
+.resultList{
+    font-size: 14px;
+    left:30%;
+    top:30%;
+    position: absolute;
+    width: 70%;
+
+}
+
+.contributors{
+    display: flex;
+    margin-left: 7px;
+    font-size: 10px;
+    color:rgb(91, 92, 90);
+}
+
+.counter{
+    margin-left: 3px;
+    margin-top: 3px;
+}
+
+.repoOwner{
+    color:blue;
+    display: inline-flex;
+    font-weight: bold;
+}
+
+.repoDescription{
+    color:rgb(57, 55, 54);
+    font-size: 10px;
+}
+
+.starImg{
+    width:8px;
+    height: 9px;
+    color:rgb(91, 87, 86);
+    margin-left: 7px;
+    margin-top: 3px;
+}
+
+.sortOptions{
+    left:63%;
+    position: absolute;
+    top:26%;
+
+}
+
+.avatarImg{
+    width: 20px;
+    height: 30px;
+}
+
+@media only screen and (max-width:600px){
+        .resultList{
+            left:2%;
+            width: 100%;
+            top:20%;
+        }
+        .sortOptions{
+            top:18%;
+        }
+}
