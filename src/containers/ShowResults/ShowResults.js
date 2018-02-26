@@ -36,8 +36,8 @@ class Showresult extends Component{
         }
         const peopleStyle={
             color:'rgb(91, 92, 90)',
-            width:'20px',
-            height:'20px'
+            width:'16px',
+            height:'19px'
 
         }
         let sorted = this.props.data

@@ -15,6 +15,7 @@ class Sort extends Component{
      render(){
         return(
             <div className={classes.mainSort}>
+                Order by:
                 <select value={this.state.sortValue} onChange={this.handleChange.bind(this)}>
                     <option value="name">Name</option>
                     <option value="owner">Owner</option>

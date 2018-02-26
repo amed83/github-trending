@@ -1,11 +1,21 @@
 .mainSort select{
-    font-size: 12px;
-    font-weight: bold;
+    font-size: 10px;
+
 }
 
+.mainSort select option{
+    font-size: 10px;
+    font-weight: bold;
+    width: 3px;
+}
 
 @media only screen and(max-height:600px){
     .mainSort{
-        top:10%;
+        top:35%;
     }
+    .mainSort select {
+        font-size: 50%;
+        color:red;
+    }
+
 }

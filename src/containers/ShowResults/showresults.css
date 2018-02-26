@@ -54,10 +54,11 @@
 }
 
 .sortOptions{
-    left:63%;
+    left:36%;
     position: absolute;
     top:26%;
-
+    font-size: 12px;
+    font-weight: bold;
 }
 
 .avatarImg{
@@ -72,6 +73,8 @@
             top:20%;
         }
         .sortOptions{
-            top:18%;
+            top:17%;
+            left:15%;
+            font-size: 50%;
         }
 }
