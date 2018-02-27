@@ -3,7 +3,7 @@ import React from 'react'
 import classes from './header.css'
 import logo from '../../img/logo.png'
 
-const header=(props)=>{
+const header=()=>{
 
     return(
         <div className={classes.header}>
@@ -14,11 +14,11 @@ const header=(props)=>{
                     <div>Marketplace</div>
                     <div>Explore</div>
                 </div>
-
         </div>
     )
 
 
 }
+
 
 export default header

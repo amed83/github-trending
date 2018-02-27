@@ -1,10 +1,13 @@
 
 .header{
+    display: none;
     width: 100%;
     background: black;
     height: 30px;
-    display: flex;
+    /* display: flex; */
     justify-content:center;
+    position: fixed;
+    z-index: 9999;
 }
 
 .centralHeader{
@@ -27,13 +30,19 @@
 
 @media only screen and (max-width: 600px) {
 
-    .centralHeader{
-        width: 44%;
-        padding-top:4px;
+    .header{
+        display: flex;
     }
-    /* .header{
-        background: green;
-    } */
+    .centralHeader{
+        width: 60%;
+        font-weight: bold;
+        padding-top:9px;
+        font-size:10px;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
     .logo{
         left:5%;
     }

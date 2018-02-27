@@ -13,6 +13,26 @@ class Search extends Component {
         option:'repo',
         error:""
     }
+componentDidMount(){
+    function formatDate(date) {
+    var d = date,
+        month = '0' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    return [year, month, day].join('-');
+}
+ let today = formatDate(new Date())
+
+ console.log(today);
+    axios.get(`https://api.github.com/search/repositories?q=created:${today}&sort=stars&order=desc`)
+        .then(res=>{
+            let data=res.data.items.slice(0,10)
+            this.setState({
+                results:data
+            })
+        })
+}
 handleChange(event){
     this.setState({
         inputValue:event.target.value,
@@ -34,7 +54,7 @@ handleSubmit(event){
              .then(res=> {
                  if(res.data.total_count<1){
                          this.setState({
-                             error:'We could find this repo, sorry :(',
+                             error:`We couldn't find this repo, sorry :(`,
                              results:[]
                          })
                      return;
@@ -67,7 +87,7 @@ handleSubmit(event){
                  })
              }).catch(e=> {
                  this.setState({
-                     error:'Sorry, this user does not exist ',
+                     error:`Sorry, this user doesn't not exist`,
                      results:[]
                  })
              })
@@ -103,8 +123,3 @@ handleSubmit(event){
 }
 
 export default Search;
-
-// <select value={this.state.option}onChange={this.handleOption.bind(this)}>
-//     <option value="repo">Repo</option>
-//     <option value="owner">User</option>
-// </select>
