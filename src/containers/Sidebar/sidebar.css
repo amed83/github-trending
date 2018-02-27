@@ -1,5 +1,5 @@
 
-.header{
+.sidebar{
     height:100%;
     background: black;
     width:180px;
@@ -8,7 +8,7 @@
 
 }
 
-.header a{
+.sidebar a{
     display: block;
     font-size: 16px;
     padding: 45px 8px 6px 40px;;
@@ -16,15 +16,15 @@
     color:white;
 }
 
-.header a:hover{
+.sidebar a:hover{
     color:grey;
 }
 
-.centralHeader{
+.centralSidebar{
     margin-top: 80px;
 }
 
-.header img{
+.sidebar img{
     width:36px;
     height:30px;
     position: absolute;
@@ -36,7 +36,7 @@
 
 @media only screen and (max-width:600px){
 
-    .header{
+    .sidebar{
         display: none;
     }
 }

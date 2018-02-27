@@ -6,9 +6,9 @@ import logo from '../../img/logo.png'
 class Sidebar extends Component{
     render(){
         return(
-            <div className={classes.header}>
+            <div className={classes.sidebar}>
                     <img className={classes.logo}src={logo} alt="github-logo"/>
-                    <div className={classes.centralHeader}>
+                    <div className={classes.centralSidebar}>
                             <a href="#about">Pull requests</a>
                             <a href="#services">Issues</a>
                             <a href="#clients">Marketplace</a>
@@ -22,7 +22,3 @@ class Sidebar extends Component{
 
 
 export default Sidebar
-
-// <MuiThemeProvider classes={classes.barContainer}>
-//     Hello Sidebar
-// </MuiThemeProvider>

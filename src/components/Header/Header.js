@@ -9,10 +9,10 @@ const header=()=>{
         <div className={classes.header}>
                 <img className={classes.logo}src={logo} alt="github-logo"/>
                 <div className={classes.centralHeader}>
-                    <div>Pull requests</div>
-                    <div>Issues</div>
-                    <div>Marketplace</div>
-                    <div>Explore</div>
+                    <a href="#about">Pull requests</a>
+                    <a href="#services">Issues</a>
+                    <a href="#clients">Marketplace</a>
+                    <a href="#clients">Explore</a>
                 </div>
         </div>
     )

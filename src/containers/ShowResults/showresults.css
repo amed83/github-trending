@@ -5,21 +5,19 @@
     /* border:solid black 1px; */
 }
 
-.fas fa-users{
-    color:green;
-}
 
 .main{
     padding-top: 1.5%;
+    padding-left: 1%;
 }
 
 .resultList{
     font-size: 14px;
     left:30%;
-    top:30%;
+    top:20%;
     position: absolute;
     width: 70%;
-
+    height: 155%;
 }
 
 .contributors{
@@ -56,7 +54,7 @@
 .sortOptions{
     left:36%;
     position: absolute;
-    top:26%;
+    top:16%;
     font-size: 12px;
     font-weight: bold;
 }
@@ -66,16 +64,29 @@
     height: 30px;
     border-radius: 27%;
 }
+.repoDescription{
+
+}
 
 @media only screen and (max-width:600px){
         .resultList{
             left:2%;
             width: 100%;
             top:20%;
+
         }
         .sortOptions{
             top:17%;
             left:15%;
             font-size: 50%;
+        }
+        .repoOwner{
+
+            width: 80%;
+            font-size: 80%;
+        }
+        .repoDescription{
+            font-size: 80%;
+            width: 80%;
         }
 }

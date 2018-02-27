@@ -46,15 +46,14 @@ class Showresult extends Component{
                 return(
                         <div key={item.id} className={classes.main}>
                             <div> <img className={classes.avatarImg}src={item.owner.avatar_url} alt="avatar"/> </div>
-                            <div className={classes.repoOwner}> {item.owner.login }/
+                            <div className={classes.repoOwner}> {item.owner.login }/>
                                 <div >{item.name}</div>
                                 <img className={classes.starImg}src={star} alt="star"/>
                                 <div style={starStyle}>{item.stargazers_count}</div>
                                 <div className={classes.contributors}>
-                                <i className="fas fa-users" style={peopleStyle}></i>
+                                    <i className="fas fa-users" style={peopleStyle}></i>
                                     <div className={classes.counter}>{item.countContr} Contributors</div>
                                 </div>
-
                             </div>
 
                             <div className={classes.repoDescription}>{item.description}</div>

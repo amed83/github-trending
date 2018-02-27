@@ -80,11 +80,18 @@ handleSubmit(event){
         if(this.state.option==='owner'){
              axios.get(`https://api.github.com/users/${this.state.inputValue}/repos`)
              .then(res=>{
-                 console.log('res',res.message)
+                 console.log('res',res)
                  data=res.data
-                 this.setState({
+                 if(data.length<1){
+                     this.setState({
+                         error:`Sorry, this user doesn't not exist`,
+                         results:[]
+                     })
+              } else{
+                     this.setState({
                      results:data.slice(0,10)
-                 })
+                     })
+                 }
              }).catch(e=> {
                  this.setState({
                      error:`Sorry, this user doesn't not exist`,

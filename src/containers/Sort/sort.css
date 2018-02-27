@@ -11,10 +11,10 @@
 
 @media only screen and(max-height:600px){
     .mainSort{
-        top:35%;
+        top:30%;
     }
     .mainSort select {
-        font-size: 50%;
+        font-size: 40%;
         color:red;
     }
 

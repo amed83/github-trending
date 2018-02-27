@@ -4,6 +4,7 @@ import Layout from './components/Layout/Layout'
 import Search from './containers/Search/Search.js'
 import Header from './components/Header/Header'
 import Sidebar from './containers/Sidebar/Sidebar'
+import Footer from './components/Footer/Footer'
 
 class App extends Component {
 
@@ -13,6 +14,7 @@ class App extends Component {
                 <Header />
                 <Sidebar />
                 <Search  />
+                <Footer />
             </Layout>
     );
   }

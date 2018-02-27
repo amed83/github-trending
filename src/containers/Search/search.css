@@ -22,7 +22,7 @@
     justify-content: center;
     width: 60%;
     position: absolute;
-    top:5%;
+    top:-4%;
     left:15%;
 }
 
@@ -32,24 +32,25 @@
     font-size: 12px;
     position: absolute;
     left: 36%;
-    top:31%;
+    top:20%;
 }
 
 
 @media only screen and (max-width: 600px) {
     .mainContainer{
-        top:2%;
+        top:-3%;
         left:0%;
         justify-content: flex-start;
-        width: 92%;
+        width: 105%;
     }
     .content input{
-        width: 100%;
+        width: 200%;
         font-size:50%;
+        margin-left:6px;
     }
     .content select{
-        width: 42%;
-        font-size:45%;
+        width: 78%;
+        font-size:42%;
     }
 
     .errorMessage{
