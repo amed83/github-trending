@@ -14,17 +14,18 @@ class Search extends Component {
         error:""
     }
 componentDidMount(){
-    function formatDate(date) {
-    var d = date,
-        month = '0' + (d.getMonth() + 1),
-        day = '' + d.getDate(),
-        year = d.getFullYear();
+    const formatDate=(date)=> {
+        let d = date,
+            month = '0' + (d.getMonth() + 1),
+            day = '' + d.getDate(),
+            year = d.getFullYear();
+            if(day<10){
+                day='0'+day
+            }
+            return [year, month, day].join('-');
+        }
+    let today = formatDate(new Date())
 
-    return [year, month, day].join('-');
-}
- let today = formatDate(new Date())
-
- console.log(today);
     axios.get(`https://api.github.com/search/repositories?q=created:${today}&sort=stars&order=desc`)
         .then(res=>{
             let data=res.data.items.slice(0,10)
@@ -32,25 +33,23 @@ componentDidMount(){
                 results:data
             })
         })
-}
-handleChange(event){
-    this.setState({
-        inputValue:event.target.value,
-        error:""
-    })
-}
-handleOption(event){
-    this.setState({
-        option:event.target.value
-    })
-}
-handleSubmit(event){
-    event.preventDefault()
-    let data;
-
-    if(this.state.option==='repo'){
-
-         axios.get(`https://api.github.com/search/repositories?q=${this.state.inputValue}`)
+ }
+    handleChange(event){
+        this.setState({
+            inputValue:event.target.value,
+            error:""
+        })
+    }
+    handleOption(event){
+        this.setState({
+            option:event.target.value
+        })
+    }
+    handleSubmit(event){
+        event.preventDefault()
+        let data;
+        if(this.state.option==='repo'){
+           axios.get(`https://api.github.com/search/repositories?q=${this.state.inputValue}`)
              .then(res=> {
                  if(res.data.total_count<1){
                          this.setState({
@@ -80,7 +79,6 @@ handleSubmit(event){
         if(this.state.option==='owner'){
              axios.get(`https://api.github.com/users/${this.state.inputValue}/repos`)
              .then(res=>{
-                 console.log('res',res)
                  data=res.data
                  if(data.length<1){
                      this.setState({
@@ -112,13 +110,11 @@ handleSubmit(event){
                             value={this.state.inputValue}
                             onChange={this.handleChange.bind(this)}
                         />
-
                         <Selector value={this.state.option}onChange={this.handleOption.bind(this)}> >
                             <option value="repo">Repo</option>
                             <option value="owner">User</option>
                         </Selector>
                     </form>
-
                 </div>
                     <ShowResults data={this.state.results}/>
                     <div className={classes.errorMessage}>

@@ -5,16 +5,14 @@ import Sort from '../Sort/Sort'
 import star from '../../img/star.png'
 
 class Showresult extends Component{
-
         state={
-            sortedValue:"name",
+            sortedValue:"star",
         }
-    myCallBack(dataFromChild){
+    sortValue(dataFromChild){
         this.setState({
             sortedValue:dataFromChild,
         })
     }
-
     render(){
             const compare =(a,b)=>{
                 const {sortedValue} =this.state
@@ -29,7 +27,7 @@ class Showresult extends Component{
             }
 
         const starStyle={
-            fontSize: '7px',
+            fontSize: '9px',
             color:'rgb(126, 125, 120)',
             marginLeft:'4px',
             marginTop:'3.5px'
@@ -38,16 +36,14 @@ class Showresult extends Component{
             color:'rgb(91, 92, 90)',
             width:'16px',
             height:'19px'
-
         }
         let sorted = this.props.data
         let list= sorted.sort(compare).map(item=>{
-
                 return(
                         <div key={item.id} className={classes.main}>
                             <div> <img className={classes.avatarImg}src={item.owner.avatar_url} alt="avatar"/> </div>
                             <div className={classes.repoOwner}> {item.owner.login }/>
-                                <div >{item.name}</div>
+                                <div>{item.name}</div>
                                 <img className={classes.starImg}src={star} alt="star"/>
                                 <div style={starStyle}>{item.stargazers_count}</div>
                                 <div className={classes.contributors}>
@@ -55,7 +51,6 @@ class Showresult extends Component{
                                     <div className={classes.counter}>{item.countContr} Contributors</div>
                                 </div>
                             </div>
-
                             <div className={classes.repoDescription}>{item.description}</div>
                         </div>
                     )
@@ -66,8 +61,7 @@ class Showresult extends Component{
                             {list}
                         </div>
                         <div className={classes.sortOptions}>
-                            <Sort callBackFromParent={this.myCallBack.bind(this)}/>
-
+                            <Sort callBackFromParent={this.sortValue.bind(this)}/>
                         </div>
               </div>
         )

@@ -1,10 +1,9 @@
 
-import React, { Component} from 'react'
+import React from 'react'
 import classes from './sidebar.css'
 import logo from '../../img/logo.png'
 
-class Sidebar extends Component{
-    render(){
+const sidebar = () =>{
         return(
             <div className={classes.sidebar}>
                     <img className={classes.logo}src={logo} alt="github-logo"/>
@@ -16,9 +15,8 @@ class Sidebar extends Component{
                     </div>
             </div>
         )
-    }
 }
 
 
 
-export default Sidebar
+export default sidebar

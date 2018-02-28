@@ -1,21 +1,23 @@
 .mainSort select{
-    font-size: 10px;
-
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 2px;
 }
 
 .mainSort select option{
-    font-size: 10px;
+    font-size: 12px;
     font-weight: bold;
     width: 3px;
 }
 
-@media only screen and(max-height:600px){
+label{
+    color:#6c6464;
+}
+@media only screen and(max-width:600px){
     .mainSort{
         top:30%;
     }
-    .mainSort select {
-        font-size: 40%;
-        color:red;
+    .mainSort select option {
+        font-size: 8px;
     }
-
 }

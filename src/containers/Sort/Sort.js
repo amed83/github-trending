@@ -4,7 +4,7 @@ import classes from './sort.css'
 
 class Sort extends Component{
      state={
-         sortValue:"name"
+         sortValue:"star"
      }
      handleChange(event){
          this.props.callBackFromParent(event.target.value);
@@ -15,7 +15,7 @@ class Sort extends Component{
      render(){
         return(
             <div className={classes.mainSort}>
-                
+                <label >Order by </label>
                 <select value={this.state.sortValue} onChange={this.handleChange.bind(this)}>
                     <option value="name">Name</option>
                     <option value="owner">Owner</option>
